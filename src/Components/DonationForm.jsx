@@ -1,3 +1,34 @@
-export default function DonationForm() {
-  return null;
+function DonationForm({ donations }) {
+  const getDonations = (arr) => {
+    return arr.length + 1;
+  };
+
+  const donationNumber = getDonations(donations)
+
+  return (
+    <div className="donation">
+      <h3>You could be donation <span class="secondary">#{donationNumber}!</span></h3>
+      <form>
+        <label htmlFor="name">
+          Name
+          <input id="name" name="name" type="text" placeholder="Your name..." />
+        </label>
+        <label htmlFor="caption">
+          Caption
+          <input
+            id="caption"
+            name="caption"
+            type="text"
+            placeholder="Add a brief message..."
+          />
+        </label>
+        <label htmlFor="amount">
+          Amount
+          <input id="amount" name="amount" type="number" placeholder="0" />
+        </label>
+        <button>Donate!</button>
+      </form>
+    </div>
+  );
 }
+export default DonationForm;
